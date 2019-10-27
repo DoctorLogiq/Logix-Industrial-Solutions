@@ -1,4 +1,4 @@
-package com.mods.logix.industrial.registry;
+package com.mods.logix.industrial.atlas;
 
 import com.google.common.collect.ImmutableMap;
 import com.mods.logix.API.block.LogixBlock;

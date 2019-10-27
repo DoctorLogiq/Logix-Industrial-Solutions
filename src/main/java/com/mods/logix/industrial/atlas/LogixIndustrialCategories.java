@@ -1,4 +1,4 @@
-package com.mods.logix.industrial.groups;
+package com.mods.logix.industrial.atlas;
 
 import net.minecraft.item.ItemGroup;
 

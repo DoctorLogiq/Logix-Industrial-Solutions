@@ -1,6 +1,5 @@
-package com.mods.logix.industrial.groups;
+package com.mods.logix.industrial.atlas;
 
-import com.mods.logix.industrial.registry.LogixIndustrialBlocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;

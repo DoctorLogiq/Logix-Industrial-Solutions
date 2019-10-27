@@ -16,13 +16,6 @@ public class LogixIndustrialSolutions extends SecurityManager
     public LogixIndustrialSolutions()
     {
         instance = this;
-        /*
-        MLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doServerStuff);
-         */
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
     }
 
@@ -31,22 +24,10 @@ public class LogixIndustrialSolutions extends SecurityManager
         return instance;
     }
 
-    /* private void setup(final FMLCommonSetupEvent event)
-    {
-
-    }
-
-
-
-    private void doServerStuff(FMLServerStartingEvent event)
-    {
-
-    } */
-
     private void doClientStuff(final FMLClientSetupEvent event)
     {
         OBJLoader.INSTANCE.addDomain(ModID);
-        logDebug("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        //logDebug("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
     }
 
     //region Logging
@@ -166,9 +147,9 @@ public class LogixIndustrialSolutions extends SecurityManager
         return indent.toString();
     }
     //endregion
-
     //region Security
 
+    //TODO: Make static? Increase array index by one if so(?)
     public Class whoCalledHere()
     {
         return getClassContext()[3];
@@ -179,21 +160,4 @@ public class LogixIndustrialSolutions extends SecurityManager
         return getClassContext()[4];
     }
     //endregion
-
-    /*
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
-        InterModComms.sendTo(ModID, "helloworld", () ->
-        {
-            return "Hello world";
-        });
-    }
-
-    private void processIMC(final InterModProcessEvent event)
-    {
-        LOGGER.info("Got IMC {}", event.getIMCStream().
-                map(m -> m.getMessageSupplier().get()).
-                collect(Collectors.toList()));
-    }
-    */
 }
