@@ -1,5 +1,6 @@
 {
   "itemGroup.logixindustrialdecorative": "Logix Industrial: Decoration",
 
-  "block.logixindustrialsolutions.concrete_block": "Concrete Block"
+  "block.logixindustrialsolutions.concrete_block": "Concrete Block",
+  "block.logixindustrialsolutions.radiation_source_block": "Radiation Source (for testing)"
 }

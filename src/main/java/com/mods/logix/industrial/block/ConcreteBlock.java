@@ -25,6 +25,12 @@ public class ConcreteBlock extends LogixObjBlock// implements IWaterLoggable
         //this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(false)));
     }
 
+    @Override
+    public String[] getTextureNames()
+    {
+        return new String[]{ "concrete_block" };
+    }
+
     /*protected void fillStateContainer(StateContainer.Builder<Block, BlockState> state)
     {
         state.add(WATERLOGGED);

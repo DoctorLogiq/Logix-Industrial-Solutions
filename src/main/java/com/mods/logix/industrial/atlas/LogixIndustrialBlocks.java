@@ -1,11 +1,12 @@
 package com.mods.logix.industrial.atlas;
 
 import com.google.common.collect.ImmutableMap;
+import com.mods.logix.API.block.LogixObjBlock;
 import com.mods.logix.API.block.base.LogixBlock;
 import com.mods.logix.API.block.base.LogixContainerBlock;
-import com.mods.logix.API.block.LogixObjBlock;
 import com.mods.logix.industrial.LogixIndustrialSolutions;
 import com.mods.logix.industrial.block.ConcreteBlock;
+import com.mods.logix.industrial.block.RadiationSourceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.item.Item;
@@ -23,6 +24,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import static com.mods.logix.industrial.LogixIndustrialSolutions.ModID;
 import static com.mods.logix.industrial.atlas.LogixIndustrialNames.NAME_BLOCK_CONCRETE;
+import static com.mods.logix.industrial.atlas.LogixIndustrialNames.NAME_BLOCK_RADIATION_SOURCE;
 
 @ObjectHolder(ModID)
 @Mod.EventBusSubscriber(modid = ModID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -44,6 +46,9 @@ public class LogixIndustrialBlocks
 
     @ObjectHolder(NAME_BLOCK_CONCRETE)
     public static final LogixBlock CONCRETE_BLOCK = new ConcreteBlock();
+
+    @ObjectHolder(NAME_BLOCK_RADIATION_SOURCE)
+    public static final LogixBlock RADIATION_SOURCE_BLOCK = new RadiationSourceBlock();
 
     @SubscribeEvent
     static void onBlockRegistry(final RegistryEvent.Register<Block> event)
@@ -106,15 +111,21 @@ public class LogixIndustrialBlocks
     {
         // TODO: Put texture names in OBJBlock and make this work for all LogixOBJBlocks
         LogixIndustrialSolutions.logProcessStart("Stitching textures");
-        ResourceLocation resloc = ResourceLocation.tryCreate(ModID + ":block/concrete_block"); // textures/block/concrete_block.png
-        if (resloc != null)
+        for (LogixObjBlock target : LogixObjBlock.getAllObjBlocks())
         {
-            event.addSprite(resloc);
-            LogixIndustrialSolutions.logProcessStep("Added sprite for concrete_block");
-        }
-        else
-        {
-            LogixIndustrialSolutions.logProcessError("Failed to create ResourceLocation for concrete_block");
+            for (String texture : target.getTextureNames())
+            {
+                ResourceLocation resloc = ResourceLocation.tryCreate(ModID + ":block/" + texture);
+                if (resloc != null)
+                {
+                    event.addSprite(resloc);
+                    LogixIndustrialSolutions.logProcessStep("Added sprite '" + texture + "' for block '" + target.name + "'");
+                }
+                else
+                {
+                    LogixIndustrialSolutions.logProcessError("Failed to create ResourceLocation '" + texture + "' for block '" + target.name + "'");
+                }
+            }
         }
         LogixIndustrialSolutions.logProcessEnd();
     }

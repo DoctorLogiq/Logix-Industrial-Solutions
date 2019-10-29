@@ -4,14 +4,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockReader;
+
+import javax.annotation.Nullable;
 
 public abstract class LogixObjBlockWithTileEntity extends LogixObjBlock
 {
@@ -44,6 +41,17 @@ public abstract class LogixObjBlockWithTileEntity extends LogixObjBlock
     }
 
     @Override
+    public boolean hasTileEntity(BlockState state)
+    {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public abstract TileEntity createTileEntity(BlockState state, IBlockReader world);
+
+    /* TODO: Implement
+    @Override
     public void onBlockPlacedBy(World world, BlockPos pos, BlockState blockState, LivingEntity placer, ItemStack stack)
     {
         if (stack.hasDisplayName())
@@ -71,6 +79,7 @@ public abstract class LogixObjBlockWithTileEntity extends LogixObjBlock
             super.onReplaced(state, world, pos, newState, isMoving);
         }
     }
+     */
 
     /* TODO: Complete these if necessary (look at FurnaceBlock and AbstractFurnaceBlock)
     public boolean hasComparatorInputOverride(BlockState p_149740_1_) {

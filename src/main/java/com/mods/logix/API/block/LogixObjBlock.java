@@ -64,6 +64,8 @@ public abstract class LogixObjBlock extends LogixBlock
         ALL_OBJ_BLOCKS.add(this);
     }
 
+    public abstract String[] getTextureNames();
+
     @Override
     public boolean canCreatureSpawn(BlockState state, IBlockReader world, BlockPos pos, EntitySpawnPlacementRegistry.PlacementType type, @Nullable EntityType<?> entityType)
     {
