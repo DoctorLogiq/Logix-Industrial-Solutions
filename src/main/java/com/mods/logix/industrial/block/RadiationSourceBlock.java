@@ -6,13 +6,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 
 import static com.mods.logix.industrial.LogixIndustrialSolutions.ModID;
-import static com.mods.logix.industrial.atlas.LogixIndustrialNames.NAME_BLOCK_GENERIC;
 import static com.mods.logix.industrial.atlas.LogixIndustrialGroups.DECORATIVES;
+import static com.mods.logix.industrial.atlas.LogixIndustrialNames.NAME_BLOCK_RADIATION_SOURCE;
 
-public class GenericBlock extends LogixObjBlock
+public class RadiationSourceBlock extends LogixObjBlock
 {
-    public GenericBlock()
+    public RadiationSourceBlock()
     {
-        super(ModID, NAME_BLOCK_GENERIC, DECORATIVES, Material.IRON, MaterialColor.IRON, SoundType.METAL);
+        super(ModID, NAME_BLOCK_RADIATION_SOURCE, DECORATIVES, Material.IRON, MaterialColor.IRON, SoundType.METAL);
     }
 }

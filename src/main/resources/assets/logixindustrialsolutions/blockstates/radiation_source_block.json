@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "logixindustrialsolutions:block/radiation_source_block"
+    }
+  },
+  "variants": {
+    "": [{}]
+  }
+}

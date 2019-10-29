@@ -1,6 +1,7 @@
 package com.mods.logix.API.block;
 
 import com.google.common.collect.ImmutableMap;
+import com.mods.logix.API.block.base.LogixBlock;
 import com.mods.logix.industrial.LogixIndustrialSolutions;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -79,7 +80,6 @@ public abstract class LogixObjBlock extends LogixBlock
     @Override
     public BlockRenderType getRenderType(BlockState state)
     {
-        // TODO: Check this is needed
         return BlockRenderType.MODEL;
     }
 

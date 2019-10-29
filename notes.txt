@@ -1,0 +1,8 @@
+NOTES
+---------------------------------------------------------------------------------------------------------------
+
+1.
+The API package may need moving eventually, so it can be used with future mods which will become part of a set.
+
+2.
+Block OBJ models are 1 Blender unit big on all axes and use the coordinates: X= 0.5, Y= -0.5, Z= 0.5

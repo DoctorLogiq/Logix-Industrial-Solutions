@@ -1,4 +1,4 @@
-package com.mods.logix.API.block;
+package com.mods.logix.API.block.base;
 
 import com.mods.logix.industrial.LogixIndustrialSolutions;
 import net.minecraft.block.Block;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public abstract class LogixBlock extends Block
 {
-    private static final ArrayList<LogixBlock> ALL_BLOCKS = new ArrayList<>();
+    private static final ArrayList<LogixBlock> ALL_BLOCKS_FOR_REGISTRATION = new ArrayList<>();
 
     private final Properties properties;
     private final ItemGroup group;
@@ -32,7 +32,7 @@ public abstract class LogixBlock extends Block
         this.properties = Properties.create(material, colour).sound(sound);
 
         setRegistryName(modID + ":" + name);
-        ALL_BLOCKS.add(this);
+        ALL_BLOCKS_FOR_REGISTRATION.add(this);
     }
 
     public LogixBlock(String modID, String name, ItemGroup group, Properties properties)
@@ -45,7 +45,7 @@ public abstract class LogixBlock extends Block
         this.properties = properties;
 
         setRegistryName(modID + ":" + name);
-        ALL_BLOCKS.add(this);
+        ALL_BLOCKS_FOR_REGISTRATION.add(this);
     }
 
     public BlockItem createBlockItem()
@@ -60,8 +60,11 @@ public abstract class LogixBlock extends Block
         return item;
     }
 
+    /**
+     * @return an <em>unmodifiable</em> list of all the blocks which need registering.
+     */
     public static List<LogixBlock> getAllBlocksForRegistration()
     {
-        return Collections.unmodifiableList(ALL_BLOCKS);
+        return Collections.unmodifiableList(ALL_BLOCKS_FOR_REGISTRATION);
     }
 }

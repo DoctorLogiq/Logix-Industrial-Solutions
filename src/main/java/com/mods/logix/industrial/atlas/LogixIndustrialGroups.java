@@ -13,7 +13,7 @@ public class LogixIndustrialGroups
         @Override
         public ItemStack createIcon()
         {
-            return new ItemStack(LogixIndustrialBlocks.generic_block);
+            return new ItemStack(LogixIndustrialBlocks.CONCRETE_BLOCK);
         }
     };
 }
